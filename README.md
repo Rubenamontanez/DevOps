@@ -12,7 +12,23 @@ Images to Containers
 
 -TI stands for terminal interactive. It just causes it to have a full terminal within the image so that you can run the shell and get things like tab completion and formatting to work correctly. When you're running commands by typing on
 
-Managing Containers
+Containers Management
 - Can limit memory (docker run --memory maximum-allowed-memory image-name commmand
 - can limit CPU (docker run --cpu-shares) relative to other containers
--Dont let containers fetch dependencies when they start
+- Dont let containers fetch dependencies when they start. (e.g. If you're using things like Node.js some day, somebody's gonna remove some library out from the node repos, and all of a sudden, all your containers just stop throughout your whole system. Fetch make your containers include their dependencies inside the container)
+- Fetch make your containers include their dependencies inside the container themselves.
+- Don't leave important things in unnamed stopped containers. 
+
+Container Networking
+- Docker is almost universally used to run network services such as web and database servers. Programs in containers are isolated from the internet by default.
+- docker run --rm -ti(terminal interactive) -p(publish) 45678:45678(publish port 45678 and connect it to port 45678) -p 45679:45679 --name echo-server(explicit name) ubuntu: 14.04 bash
+- docker desktop for windows nc (use IP address) port number 
+- Exposing ports dynamially. Ports inside a container are fixed. Using multiple ports (12) Docker has that solved. You can leave off the host side of the port definition and Docker will fill it in from one of the available ports. This allows many containers running the same programs to share the same host. This is often used with some sort of an orchestration or discovery service like Kubernetes or something like that. 
+
+Docker Commands
+docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0
+--publish asks Docker to forward traffic incoming on the host’s port 8000 to the container’s port 8080. Containers have their own private set of ports, so if you want to reach one from the network, you have to forward traffic to it in this way. Otherwise, firewall rules will prevent all network traffic from reaching your container, as a default security posture.
+--detach asks Docker to run this container in the background.
+--name specifies a name with which you can refer to your container in subsequent commands, in this case bb
+docker rm --force bb
+--force option stops a running container, so it can be removed. If you stop the container running with docker stop bb first, then you do not need to use --force to remove it.
