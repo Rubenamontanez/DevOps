@@ -32,3 +32,22 @@ docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0
 --name specifies a name with which you can refer to your container in subsequent commands, in this case bb
 docker rm --force bb
 --force option stops a running container, so it can be removed. If you stop the container running with docker stop bb first, then you do not need to use --force to remove it.
+-- docker run [OPTIONS] IMAGE(The conatainer image to run. By default, these are pulled from DockerHub)[:TAG](A specific image tag. Usually used to pull a specific version ) [COMMAND](command to run im the container) [ARGS...](Arguments to pass when running the command)
+(e.g. docker run busybox-IMAGE[TAG] echo[COMMAND] hello world![ARGUMENT])
+-- -d :Run a container in detached mode. The docker run command will exit immediately and the container will run in the background.
+-- --name:A container is assigned a random name by default, but you can give it a more descriptive name with this flag.
+
+
+Storage Driver
+Provides a pluggable framework for managing the temporary,internal storage of a container's writable layer.If you have software inside container thats writing files to the disk and not using mounted volume or external storage. It will write to the containers internal storage. The way it gets managed depends on the storage driver 
+Docker offer storage driver framework. supports a variety of storage drivers. The best storage driver to use depends on the enviroment and storage needs.
+
+overlay2 file-based storage. Default for Ubuntu and CentOS 8.
+devicemapper: Block storage, more efficent for doing lots of writes. Default for Centos 7 and earlier
+
+https://docs.docker.com/storage/storagedriver/select-storage-driver/
+
+in storage drivers how do we save and quit when in changes mode
+
+
+
