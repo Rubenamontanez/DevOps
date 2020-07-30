@@ -28,14 +28,14 @@ Container Networking
 Docker Commands
 - docker run --publish 8000:8080 --detach --name bb bulletinboard:1.0
 - --publish asks Docker to forward traffic incoming on the host’s port 8000 to the container’s port 8080. Containers have their own private set of ports, so if you want to reach one from the network, you have to forward traffic to it in this way. Otherwise, firewall rules will prevent all network traffic from reaching your container, as a default security posture.
---detach asks Docker to run this container in the background.
---name specifies a name with which you can refer to your container in subsequent commands, in this case bb
+- --detach(asks Docker to run this container in the background.)
+- name specifies a name with which you can refer to your container in subsequent commands, in this case bb
 docker rm --force bb
---force option stops a running container, so it can be removed. If you stop the container running with docker stop bb first, then you do not need to use --force to remove it.
--- docker run [OPTIONS] IMAGE(The conatainer image to run. By default, these are pulled from DockerHub)[:TAG](A specific image tag. Usually used to pull a specific version ) [COMMAND](command to run im the container) [ARGS...](Arguments to pass when running the command)
+- force option stops a running container, so it can be removed. If you stop the container running with docker stop bb first, then you do not need to use --force to remove it.
+- docker run [OPTIONS] IMAGE(The conatainer image to run. By default, these are pulled from DockerHub)[:TAG](A specific image tag. Usually used to pull a specific version ) [COMMAND](command to run im the container) [ARGS...](Arguments to pass when running the command)
 (e.g. docker run busybox-IMAGE[TAG] echo[COMMAND] hello world![ARGUMENT])
--- -d :Run a container in detached mode. The docker run command will exit immediately and the container will run in the background.
--- --name:A container is assigned a random name by default, but you can give it a more descriptive name with this flag.
+- -d :Run a container in detached mode. The docker run command will exit immediately and the container will run in the background.
+- --name ngnix:A container is assigned a random name by default, but you can give it a more descriptive name with this flag.
 
 
 Storage Driver
