@@ -53,6 +53,7 @@ Logging Drivers
 -- pluggable framework for accessing log data from servies and containers in Docker. DOcker supports a variety of logging drivers.
 --Configuring logging drivers isnt neccessary they already come configured
 
-
-
+Namespaces
+-- they are a aLinux technology that allows processes to be isolated in terms of the resources that they see. They can be used to prevent different processes from interfereing or interacting with one another
+-- Docker user namespaces to isolate containers. THis technology allows containers to operate independently and securely.
 
