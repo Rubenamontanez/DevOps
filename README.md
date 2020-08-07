@@ -53,7 +53,14 @@ Logging Drivers
 -- pluggable framework for accessing log data from servies and containers in Docker. DOcker supports a variety of logging drivers.
 --Configuring logging drivers isnt neccessary they already come configured
 
-Namespaces
--- they are a aLinux technology that allows processes to be isolated in terms of the resources that they see. They can be used to prevent different processes from interfereing or interacting with one another
--- Docker user namespaces to isolate containers. THis technology allows containers to operate independently and securely.
+Namespaces: they are a aLinux technology that allows processes to be isolated in terms of the resources that they see. They can be used to prevent different processes from interfereing or interacting with one another. Docker user namespaces to isolate containers. THis technology allows containers to operate independently and securely.
+-pid(process isolation): DOcker is only able to see the process inside the container only
+-net(network intefaces): manages network resources within the container(e.g. if theres net in different containers it wont see them)
+-ipc(inter-process communication):
+-mnt(Filesystem mounts):
+-uts(Kernel and version identifiers):
+-user namespaces: Require special configuration. REquires you to coordinate your enviromet. Allows container processes to run as root inside the container while mapping that user to an unprivileged user on host.
+Allows you to run as root in the container while running as an unprivilged user outside the container.
+
+cgroups-limit resource uses. Used by docker to enforce rules on resources 
 
