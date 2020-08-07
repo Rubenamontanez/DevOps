@@ -49,5 +49,10 @@ https://docs.docker.com/storage/storagedriver/select-storage-driver/
 
 in storage drivers how do we save and quit when in changes mode
 
+Logging Drivers
+-- pluggable framework for accessing log data from servies and containers in Docker. DOcker supports a variety of logging drivers.
+--Configuring logging drivers isnt neccessary they already come configured
+
+
 
 
